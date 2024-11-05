@@ -1,18 +1,35 @@
 <!DOCTYPE html>
-<html lang="pt_PT">
+<html lang="pt">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lista de Tarefas</title>
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./src/style.css" />
 </head>
+
 <body>
     <h1>Lista de Tarefas</h1>
     <div id="task-container">
-        <input type="text" id="new-task" placeholder="Digite uma tarefa...">
+        <input type="text" id="new-task" placeholder="Digite uma nova tarefa..." />
+        <select id="task-priority">
+            <option value="normal">Normal</option>
+            <option value="urgent">Urgente</option>
+            <option value="non-urgent">Não Urgente</option>
+        </select>
         <button id="add-task-btn">Adicionar Tarefa</button>
+        <div id="filter-container">
+            <button class="filter-btn" id="all-filter" data-filter="all">Todas</button>
+            <button class="filter-btn" id="normal-filter" data-filter="normal">Normais</button>
+            <button class="filter-btn" id="urgent-filter" data-filter="urgent">Urgentes</button>
+            <button class="filter-btn" id="non-urgent-filter" data-filter="non-urgent">Não Urgentes</button>
+            <button class="filter-btn" id="completed-filter" data-filter="completed">Concluídas</button>
+            <button class="filter-btn" id="pending-filter" data-filter="pending">Pendentes</button>
+        </div>
         <ul id="task-list"></ul>
     </div>
-    <script src="script.js"></script>
+    <script src="./src/script.js"></script>
 </body>
+
 </html>

@@ -1,0 +1,239 @@
+/* Reset e estilos globais */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #1a1a1a; /* Preto suave */
+  color: #f0f0f0; /* Cor clara para legibilidade */
+}
+
+/* Estilo do Título */
+h1 {
+  font-size: 2.2rem;
+  color: #1e90ff; /* Azul vibrante */
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Contêiner Principal */
+#task-container {
+  width: 100%;
+  max-width: 800px; /* Aumenta a largura máxima */
+  padding: 40px; /* Aumenta o padding */
+  background: #2c2c2c; /* Preto suave para contraste */
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+/* Estilo do Input e Botão */
+#new-task {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  background-color: #1a1a1a; /* Fundo preto para o campo de entrada */
+  color: #f0f0f0;
+  border: 2px solid #444; /* Bordas escuras */
+  border-radius: 8px;
+  margin-bottom: 15px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+#new-task:focus {
+  border-color: #1e90ff; /* Azul vibrante ao focar */
+}
+
+#add-task-btn {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background-color: #1e90ff; /* Azul para destaque */
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s;
+  margin-bottom: 15px; /* Espaçamento abaixo do botão de adicionar tarefa */
+}
+
+#add-task-btn:hover {
+  background-color: #1c86e4;
+  transform: scale(1.03);
+}
+
+/* Estilo do Seletor de Prioridade */
+#task-priority {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 2px solid #444;
+  background-color: #1a1a1a;
+  color: #f0f0f0;
+  cursor: pointer;
+}
+
+/* Estilo para o Container de Filtros */
+#filter-container {
+  display: flex;
+  flex-wrap: wrap; /* Permite que os botões se ajustem se o espaço for pequeno */
+  justify-content: space-between; /* Distribui os botões uniformemente */
+  margin-bottom: 20px; /* Espaçamento abaixo do container de filtros */
+  width: 100%; /* Garante que o container ocupe toda a largura do elemento pai */
+}
+
+/* Estilo para os Botões de Filtro */
+.filter-btn {
+  flex: 1; /* Faz com que todos os botões ocupem espaço igual */
+  padding: 10px; /* Espaçamento interno dos botões */
+  font-size: 1rem; /* Tamanho da fonte */
+  font-weight: 600; /* Peso da fonte */
+  color: #f0f0f0; /* Cor do texto */
+  background-color: #333; /* Fundo escuro para os botões */
+  border: none; /* Remove a borda padrão */
+  border-radius: 8px; /* Cantos arredondados */
+  cursor: pointer; /* Cursor de mão ao passar o mouse */
+  transition: background-color 0.3s ease; /* Transição suave para a mudança de cor */
+  margin: 5px; /* Espaçamento horizontal entre os botões */
+  min-width: 120px; /* Largura mínima para os botões */
+}
+
+/* Efeito de hover e estado ativo para os botões */
+.filter-btn:hover,
+.filter-btn.active {
+  background-color: #1e90ff; /* Cor de fundo ao passar o mouse ou ao ser ativado */
+}
+
+/* Lista de Tarefas */
+#task-list {
+  list-style-type: none;
+  margin-top: 20px;
+  padding: 0;
+}
+
+/* Estilo das Tarefas */
+li {
+  display: flex;
+  justify-content: space-between; /* Alinhamento dos itens do li */
+  align-items: center; /* Alinha verticalmente os itens */
+  background: #333; /* Fundo mais escuro para contraste */
+  padding: 12px 20px; /* Aumenta o espaçamento interno */
+  margin: 8px 0; /* Aumenta a margem entre as tarefas */
+  border-radius: 8px;
+  font-size: 1rem; /* Aumenta o tamanho da fonte para melhor legibilidade */
+  color: #f0f0f0;
+  transition: background-color 0.3s ease;
+  position: relative; /* Para permitir o posicionamento dos botões dentro do item */
+  min-width: 600px; /* Largura mínima para garantir que os nomes das tarefas não sejam cortados */
+}
+
+/* Estilo para o texto da tarefa */
+li span.task-name {
+  flex-grow: 1; /* Permite que o texto da tarefa ocupe espaço */
+  margin-right: 20px; /* Aumenta o espaço entre o nome da tarefa e os botões */
+  white-space: nowrap; /* Impede quebra de linha */
+  overflow: hidden; /* Esconde o conteúdo que excede */
+  text-overflow: ellipsis; /* Adiciona reticências (...) ao final do texto que não cabe */
+}
+
+/* Estilo para a data/hora da tarefa */
+li span.task-details {
+  font-size: 0.9rem; /* Tamanho da fonte para a data/hora */
+  color: #000000; /* Cor da data/hora */
+  margin-left: 20px; /* Espaço à esquerda da data/hora */
+  white-space: nowrap; /* Impede quebra de linha */
+  overflow: hidden; /* Esconde o conteúdo que excede */
+  text-overflow: ellipsis; /* Adiciona reticências (...) ao final do texto que não cabe */
+}
+
+/* Estilo do Botão de Remoção */
+.remove-btn {
+  padding: 6px 10px;
+  font-size: 0.9rem;
+  background-color: #e63946; /* Vermelho vibrante */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-left: 10px; /* Espaço à esquerda do botão de remoção */
+}
+
+.remove-btn:hover {
+  background-color: #d62839; /* Vermelho mais escuro ao passar o mouse */
+}
+
+/* Estilo do Botão de Edição */
+.edit-btn {
+  padding: 6px 10px;
+  font-size: 0.9rem;
+  background-color: #1e90ff; /* Azul para o botão de edição */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-left: 10px; /* Espaço à esquerda do botão de edição */
+}
+
+.edit-btn:hover {
+  background-color: #1c86e4; /* Azul mais escuro ao passar o mouse */
+}
+
+/* Estilo do Botão de Completar */
+.complete-btn {
+  padding: 6px 10px;
+  font-size: 0.9rem;
+  background-color: #4caf50; /* Verde */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-left: 10px; /* Espaço à esquerda do botão de completar */
+}
+
+.complete-btn:hover {
+  background-color: #45a049; /* Verde mais escuro */
+}
+
+/* Estilo para tarefas concluídas */
+.completed {
+  text-decoration: line-through; /* Linha através do texto */
+  color: #888; /* Cor mais clara para tarefas concluídas */
+}
+/* Cores para as prioridades das tarefas */
+.task.normal {
+  background-color: #43d0ff; /* Azul claro */
+  color: #000; /* Texto preto */
+}
+
+.task.urgent {
+  background-color: #f83431; /* Vermelho claro */
+  color: #000; /* Texto preto */
+}
+
+.task.non-urgent {
+  background-color: #797979; /* Cinza claro */
+  color: #000; /* Texto preto */
+}
+
+/* Se desejar, pode adicionar estilos adicionais para a classe 'completed' */
+.task.completed {
+  background-color: #90ee90; /* Verde claro para tarefas concluídas */
+  text-decoration: line-through; /* Texto riscado */
+}
